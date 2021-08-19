@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FiltersScreen extends StatefulWidget {
+  static const routeName = '/filters';
   const FiltersScreen({Key? key}) : super(key: key);
 
   @override
