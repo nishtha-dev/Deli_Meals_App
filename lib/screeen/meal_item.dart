@@ -20,6 +20,34 @@ class MealItem extends StatelessWidget {
 
   void selectedMeal() {}
 
+  String get affordabilityTest {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return "Affordable";
+        break;
+      case Affordability.Pricey:
+        return "Pricey";
+        break;
+      case Affordability.Luxurious:
+        return "Luxurious";
+        break;
+    }
+  }
+
+  String get complexityTest {
+    switch (complexity) {
+      case Complexity.Simple:
+        return "Simple";
+        break;
+      case Complexity.Challenging:
+        return "Challenging";
+        break;
+      case Complexity.Hard:
+        return "Hard";
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -68,6 +96,47 @@ class MealItem extends StatelessWidget {
                   ),
                 )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.schedule,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityTest),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.attach_money,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityTest),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
